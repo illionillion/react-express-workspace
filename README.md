@@ -1,3 +1,5 @@
+ReactとExpressのモノレポ、npm workspaceを活用
+
 # 環境構築
 
 ルートの`.env`ファイルに以下を作成
