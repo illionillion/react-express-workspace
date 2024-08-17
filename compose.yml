@@ -1,11 +1,13 @@
 services:
   app:
     container_name: app
-    image: node:lts-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
     working_dir: /app
     volumes:
       - ./:/app
-    command: sh -c "npm run dev:app"
+    command: sh -c "pnpm run dev:app"
     tty: true
     ports:
       - ${REACT_PORT}:5173
@@ -13,11 +15,13 @@ services:
       - VITE_PROXY_URL=${PROXY_URL}
   api:
     container_name: api
-    image: node:lts-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
     working_dir: /app
     volumes:
       - ./:/app
-    command: sh -c "npm run dev:api"
+    command: sh -c "pnpm run dev:api"
     tty: true
     ports:
       - ${EXPRESS_PORT}:3000

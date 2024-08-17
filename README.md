@@ -18,7 +18,8 @@ PROXY_URL=http://localhost:8080
 依存関係のインストール
 
 ```sh
-docker compose run --rm app npm i
+docker compose build
+docker compose run --rm app pnpm i
 docker compose down
 ```
 
